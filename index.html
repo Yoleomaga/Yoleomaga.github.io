@@ -1,29 +1,72 @@
-	<!DOCTYPE html>
-	<html lang="es">
-	<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	</head>
-	<body>
-	<h1 align="center">Biendenido a mi pagina web</h1>
-	<hr>
-	<h3><ins>Biografia</ins></h3>
-	<h1 align=""><img src ="img/leo.PNG" alt="Foto de Leo" width="250"></h1>
-	<p><b>Nombre</b> : Leonardo Bastiani Cristaldo</p>
-	<p>Mi nombre es Leonardo Bastiani, vivo katuete y naci el 04/06/2004 la paloma en la capital de paraguay <br>estoy transcurriendo la carrera de analisis de sistema de la univerciodad de facitec de la sede de katuete<br>estoy en el tercer semestre, y mi serie favorita es <b>Breaking bad</b> y me gustan los gatos.</p>
-	<hr>
-	<h3><ins>Datos Personales</ins></h3>
-	<ul> <li><p><b>Edad :</b> 19 años</p></li>
-		<li><p><b>Ciudad :</b> Katuete</p></li>
-		<li><p><b>Departamento :</b> Canindeyu</p></li>
-	</ul>
-	<hr>
-	<h3><ins>Redes Sociales</ins></h3>
-	<h3>
-		<li><a href="https://www.instagram.com/basta.leonardo/">Instagram</a></li> 
-		<li><a href="https://www.youtube.com/channel/UCiusWi4H-zJksM66ReYBjmw">Youtube</a></li>
-		<li><a href="https://www.facebook.com/leonardo.bastianicristaldo.5/">Faceboock<a></li>
-		</h3>
-	</body>
-	</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro con Imágenes</title>
+    <style>
+        body {
+            background-image: url('img/Fondo.jpg'); /* Establece la imagen de fondo */
+            background-size: cover; /* Cubre toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #cronometro {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .imagenes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .imagenes img {
+            width: 100%;
+            height: 200px; /* Establece una altura fija */
+            object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>❤️Te amo con todo mi corazón mi Amorshito❤️</h1> <!-- Mensaje añadido -->
+        <div class="imagenes">
+            <img src="img/IMG-20250218-WA0055.jpg" alt="Imagen 1">
+            <img src="img/IMG-20250218-WA0056.jpg" alt="Imagen 2">
+            <img src="img/IMG-20250218-WA0057.jpg" alt="Imagen 3">
+            <img src="img/IMG-20250218-WA0059.jpg" alt="Imagen 4">
+        </div>
+        <h2>❤️Los dias que llevo Amandote❤️</h2> <!-- Cambiado a h2 -->
+        <div id="cronometro"></div>
+    </div>
+    <script>
+        const fechaInicio = new Date('2024-10-22T00:00:00');
+        function actualizarCronometro() {
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+
+            const meses = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 30));
+            const dias = Math.floor((diferencia % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById('cronometro').innerHTML = 
+                `${meses}m ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+        }
+        setInterval(actualizarCronometro, 1000);
+        actualizarCronometro();
+    </script>
+</body>
+</html>
