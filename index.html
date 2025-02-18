@@ -6,23 +6,33 @@
     <title>Para mi Amorshito <3</title>
     <style>
         body {
-            background-image: url('img/Fondo.jpg');
-            background-size: cover; 
-            background-position: center; 
+            margin: 0;
+            font-family: Arial, sans-serif;
             color: white;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            overflow: hidden;
+            position: relative; /* Importante para el video */
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; /* Enviar el video al fondo */
+            transform: translate(-50%, -50%);
         }
         .contenido {
-            background-color: rgba(0, 0, 0, 0.5); 
+            background-color: rgba(0, 0, 0, 0.7); 
             padding: 20px;
             border-radius: 10px;
+            z-index: 1; /* Asegurarse de que el contenido esté en frente */
+            text-align: center; /* Centrar texto */
         }
         #cronometro {
             font-size: 2em;
@@ -40,9 +50,9 @@
         }
         .imagenes img {
             width: calc(50% - 10px);
-            height: auto; /* Cambiado a auto para mantener proporciones */
-            max-height: 200px; /* Limitar altura máxima */
-            object-fit: cover; /* Mantener la proporción y cubrir el área */
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
             border: 2px solid white;
         }
         .boton-youtube {
@@ -63,6 +73,10 @@
     </style>
 </head>
 <body>
+    <video autoplay muted loop>
+        <source src="img/fondoani.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
     <div class="contenido">
         <h3>❤️Te amo con todo mi corazón mi Amorshito❤️</h3>
         <div class="imagenes">
